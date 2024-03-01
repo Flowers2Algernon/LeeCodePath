@@ -1,1 +1,34 @@
-
+No.1768交替合并字符串
+第一版解答：暴力解答
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+        StringBuilder string111 = new StringBuilder();
+        if(word1.length() == word2.length()){
+            for(int i = 0;i<word1.length();i++){
+                string111.append(word1.charAt(i));
+                string111.append(word2.charAt(i));
+            }
+        }else if(word1.length()<word2.length()){
+            for(int i = 0;i<word1.length();i++){
+                string111.append(word1.charAt(i));
+                string111.append(word2.charAt(i));  
+            }
+            for(int j=word1.length();j<word2.length();j++){
+                string111.append(word2.charAt(j));
+            }
+            return string111.toString();
+        }else{
+            for(int i = 0;i<word2.length();i++){
+                string111.append(word1.charAt(i));
+                string111.append(word2.charAt(i));
+            }
+            for(int j = word2.length();j<word1.length();j++){
+                string111.append(word1.charAt(j));
+            }
+            return string111.toString();
+        }
+        return string111.toString();
+    }
+}
+思路：构建一个新字符串后，判断两个输入的字符串长度，如果相等，就利用循环遍历添加到新字符串中，使用的是stringBuilder方法。如果长度不相等，则先利用一个循环遍历相等的位数，遍历完成后再截取多余的字符串末尾到新字符串中；
+不足：利用最多的时候利用了两个for循环，时间和空间内存占用不是最优解，考虑使用指针进行解答；
