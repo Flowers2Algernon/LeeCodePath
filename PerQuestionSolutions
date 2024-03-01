@@ -57,3 +57,46 @@ GPT改错结果：
 数组访问和StringBuilder方法：你尝试使用括号访问字符串中的字符（例如word1(i)），这是不正确的。正确的方式是使用charAt(i)方法。此外，你尝试对char[]数组使用append方法，这也是不正确的，因为append方法是StringBuilder的方法，不适用于数组。
 返回类型不匹配：你想要返回一个字符串，但你的代码尝试返回一个char数组（或者你本意是操作StringBuilder但声明成了数组）。你应该将最终的StringBuilder对象转换为字符串来返回。
 语法错误：使用word1.charAt(i)和word2.charAt(i)获取字符而不是word1(i)和word2(i)。
+
+No.389 找不同 
+给定两个字符串 s 和 t ，它们只包含小写字母。
+字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。
+请找出在 t 中被添加的字母。
+class Solution {
+    public char findTheDifference(String s, String t) {
+        //思路1：对s和t中每个出现的字母进行计数，不相同的就是新增的
+        //思路2：将s和t按字母顺序排列，然后逐个字符对比，不相同的即是新增的
+        //思路3：将两个字符串中的字符Unicode码各种相加，最后两者的差值即是新增的字母
+        //思路4：将两个字符串合并，对其中每个字母出现次数相加，结果为奇数的就是新增的字母
+       int sums = 0;
+       int sumt=0;
+        for(int i = 0;i<s.length();i++){
+            sums = sums + s.charAt(i);
+            sumt = sumt + t.charAt(i);
+        }
+        sumt = sumt + t.charAt(s.length());
+        int addsum = sumt - sums;
+        return (char)addsum;
+    }
+}
+总结：较复杂的方法是方法1和方法2，需要利用哈希表；方法3和方法4方法较为巧妙。
+ChatGPT改错结果：
+1.语法错误：使用char()方法获取字符是不正确的语法。在Java中，应使用charAt()方法来获取字符串中指定位置的字符。
+2.逻辑错误：在计算t的字符总和时，你的循环应当遍历整个字符串t，而不是只遍历到s.length()。同时，s.length()+1的计算会越界，应该使用s.length()来索引t中最后一个添加的字符。
+注意：
+题目中添加一个字母的意思不是说在原来的字符串中没有这个这个字母，而是将原字符串全部打乱后，多加进去一个可能已经存在的字母，所以初版这种碰到原字符串中没有的字母添加会通过，但是一旦是重复字母添加，就会报错。
+思路错误代码：
+class Solution {
+    public char findTheDifference(String s, String t) {
+        int j = 0;
+        for(int i = 0;i<t.length();i++){//先遍历t,拿出每一个字符来判断是否在s中，不在的话就返回-1；
+            if(s.indexOf(t.charAt(i))!= -1){
+                continue;
+            }else{
+                j = i;
+                break;
+            }
+        }
+        return t.charAt(j);
+    }
+}
