@@ -100,3 +100,23 @@ class Solution {
         return t.charAt(j);
     }
 }
+其余方法1：两个字符串合并后，计算其中字符出现的次数，出现次数为奇数的就是新增的字符，代码如下：
+class Solution {
+    public char findTheDifference(String s, String t) {
+        String mergeString = s + t;
+        int counti = 0;
+        for (int i = 0;i<mergeString.length();i++){
+            int count = 0;
+            for(int j = 0;j<mergeString.length();j++){
+                if (mergeString.charAt(i)== mergeString.charAt(j)){
+                    count++;
+                }
+            }
+            if (count % 2 != 0){
+                counti = i;
+                break;
+            }
+        }
+        return mergeString.charAt(counti);
+    }
+}
