@@ -32,3 +32,28 @@ class Solution {
 }
 思路：构建一个新字符串后，判断两个输入的字符串长度，如果相等，就利用循环遍历添加到新字符串中，使用的是stringBuilder方法。如果长度不相等，则先利用一个循环遍历相等的位数，遍历完成后再截取多余的字符串末尾到新字符串中；
 不足：利用最多的时候利用了两个for循环，时间和空间内存占用不是最优解，考虑使用指针进行解答；
+更加简洁的解答：
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+    int w1 = word1.length();
+    int w2 = word2.length();
+    StringBuilder sr = new StringBuilder();
+    for(int i = 0;i<w1||i<w2;i++){
+        if(i<w1){
+            sr.append(word1.charAt(i));
+        }
+        if(i<w2){
+            sr.append(word2.charAt(i));
+        }
+    }
+    return sr.toString();
+    }
+}
+过程中问题：数组和StringBuilder混淆，append方法是属于String Builder的，不能用在char数组中；
+字符串不能直接获取某一位的字符，应该使用charAt(i)方法来获取；
+return的值错误返回了一个数组/StringBuilder，应该采用toString()方法来返回字符串；
+GPT改错结果：
+数组声明错误：你尝试使用new char[w1+w2]来声明一个char数组，但是你之后尝试使用StringBuilder的append方法来给数组添加元素，这是不正确的做法。如果你想要动态添加元素，应该使用StringBuilder而不是数组。
+数组访问和StringBuilder方法：你尝试使用括号访问字符串中的字符（例如word1(i)），这是不正确的。正确的方式是使用charAt(i)方法。此外，你尝试对char[]数组使用append方法，这也是不正确的，因为append方法是StringBuilder的方法，不适用于数组。
+返回类型不匹配：你想要返回一个字符串，但你的代码尝试返回一个char数组（或者你本意是操作StringBuilder但声明成了数组）。你应该将最终的StringBuilder对象转换为字符串来返回。
+语法错误：使用word1.charAt(i)和word2.charAt(i)获取字符而不是word1(i)和word2(i)。
