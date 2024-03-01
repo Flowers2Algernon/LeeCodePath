@@ -120,3 +120,17 @@ class Solution {
         return mergeString.charAt(counti);
     }
 }
+其余方法2：异或运算。将两个字符串合并，对其中每个字符进行异或运算，剩余到最后的即是新增的字符
+class Solution {
+    public char findTheDifference(String s, String t) {
+        String mergeSAndT = s+t;
+        char c = 0;
+        for(int i = 0; i <mergeSAndT.length();i++){
+            c =(char)(c ^  mergeSAndT.charAt(i));
+        }
+        return c;
+        }
+    }
+注意第129行中，一个char与另一个char或者int进行操作运算时，结果会被提升为int类型，如果没有整体进行强制类型转换，编译器就会报错，此时就是遇到了类型兼容性问题；
+报错信息：incompatible types: possible lossy conversion from int to char
+            c = c ^ mergeSAndT.charAt(i);
