@@ -254,6 +254,7 @@ No.242 有效的字母异位词
      //思路二：合并后对字符进行计数统计，出现出现次数为奇数的就不是，但是针对aa,bb这两个也存在逻辑漏洞
      //思路三：暴力解答,容易超时
      //思路四：因为只有小写英语字母，创建两个26位数组，分别对两个字符串进行统计，如果最后两个数组相同，则符合要求
+     //思路五：如果两个字符串长度不等，则肯定false，因此对两个字符串进行排序，如果两个字符串最终相等，则为true
 实现思路一：暴力解法，时间复杂度高达O（n^2)，容易超时
 代码如下：class Solution {
     public boolean isAnagram(String s, String t) {
@@ -300,5 +301,28 @@ class Solution {
     }else{
         return false;
     }
+    }
+}
+实现思路二是采用的两个计数器，思路虽然清晰，但是还有优化的可能，以下是采用一个计数器的常规标准解法：
+实现思路三：class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        
+        int[] count = new int[26]; // 假设字符串只包含小写英文字母
+        for (int i = 0; i < s.length(); i++) {
+            count[s.charAt(i) - 'a']++; // 统计s中每个字符出现次数
+            count[t.charAt(i) - 'a']--; // 对应减少t中字符次数
+        }
+        
+        // 检查是否所有计数都归零
+        for (int c : count) {
+            if (c != 0) {
+                return false; // 如果有非0元素，说明s和t不是字母异位词
+            }
+        }
+        
+        return true;
     }
 }
