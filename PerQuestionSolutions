@@ -134,3 +134,45 @@ class Solution {
 注意第129行中，一个char与另一个char或者int进行操作运算时，结果会被提升为int类型，如果没有整体进行强制类型转换，编译器就会报错，此时就是遇到了类型兼容性问题；
 报错信息：incompatible types: possible lossy conversion from int to char
             c = c ^ mergeSAndT.charAt(i);
+
+No.28 找出字符串中第一个匹配项的下标；
+习题描述：给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串的第一个匹配项的下标（下标从 0 开始）。如果 needle 不是 haystack 的一部分，则返回  -1 。
+初版代码：仅能通过41/88个测试用例
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int signal = -1;
+        int count = 0;
+        if(needle.length()>haystack.length()){
+            return signal;
+        }
+        if(needle.length() == 1 && haystack.length() == 1){
+            if(needle.equals(haystack)){
+                return 0;
+            }else{
+                return signal;
+            }
+        }
+        for(int j = 0;j<haystack.length()-needle.length();j++){
+            if(needle.charAt(0) != haystack.charAt(j)){
+                continue;
+            }else{
+                for(int i = 0;i<needle.length();i++){
+                    if(needle.charAt(i)!=haystack.charAt(j+i)){
+                        break;
+                    }else if(needle.charAt(i)==haystack.charAt(j+i)){//此时两个字符串的其中一位字符能对上
+                        count++;
+                    }
+                }
+                }
+                if(count == needle.length()){
+                    signal = j;
+                }
+            }
+            return signal;
+            }
+    }
+存在的问题：
+1.循环条件错误：你的外层循环for(int j = 0; j < haystack.length() - needle.length(); j++)应该修改为for(int j = 0; j <= haystack.length() - needle.length(); j++)，这样可以确保包含末尾的情况，因为当needle和haystack的剩余长度相等时，还有可能找到匹配的情况。
+2.重置count：你需要在每次外循环开始时重置count = 0，否则count会在匹配失败后保持上一次的值，这将导致逻辑错误。
+3.优化逻辑：你在内循环中同时检查了字符相等和不相等的情况，其实可以简化。如果不相等，直接break跳出当前的内循环即可，无需再判断相等的情况。
+4.移动signal赋值位置：你应该在确认完全匹配后立即设置signal并跳出所有循环，因为只需要找到第一个匹配项的下标，不需要继续查找。
