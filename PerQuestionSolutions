@@ -282,3 +282,23 @@ No.242 有效的字母异位词
     }
 }
  
+实现思路二：因为只有小写英语字母，创建两个26位数组，分别对两个字符串进行统计，如果最后两个数组相同，则符合要求，对两个数组判断相等与否采用Arrays.equals方法
+代码如下：
+class Solution {
+    public boolean isAnagram(String s, String t) {
+    int[] arrays1 = new int[26];
+    int[] arrayt2 = new int[26];
+    if(s.length()!=t.length()){
+        return false;
+    }
+    for(int i = 0;i<s.length();i++){
+        arrays1[s.charAt(i) - 97] = arrays1[s.charAt(i) - 97] + 1;
+        arrayt2[t.charAt(i) - 97] = arrayt2[t.charAt(i) - 97] + 1;
+    }
+    if (Arrays.equals(arrays1,arrayt2)){
+        return true;
+    }else{
+        return false;
+    }
+    }
+}
