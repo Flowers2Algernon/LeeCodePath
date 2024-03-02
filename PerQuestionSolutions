@@ -245,3 +245,40 @@ class Solution {
         return -1; // 如果没有找到，返回-1
     }
 }
+
+
+No.242 有效的字母异位词
+原题：给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
+     //思路一：合并后进行异或运算，某些情况存在逻辑漏洞，
+     //思路二：合并后对字符进行计数统计，出现出现次数为奇数的就不是，但是针对aa,bb这两个也存在逻辑漏洞
+     //思路三：暴力解答,容易超时
+     //思路四：因为只有小写英语字母，创建两个26位数组，分别对两个字符串进行统计，如果最后两个数组相同，则符合要求
+实现思路一：暴力解法，时间复杂度高达O（n^2)，容易超时
+代码如下：class Solution {
+    public boolean isAnagram(String s, String t) {
+     int count1 = 0;
+     int count2=0;
+     //隐含条件是两个字符串的长度相同
+     if(s.length()!=t.length()){
+         return false;
+     }
+     for(int i = 0;i<s.length();i++){
+         for(int j = 0;j<s.length();j++){
+            if(s.charAt(i) == s.charAt(j)){
+                count1++;
+            }
+            if(s.charAt(i)==t.charAt(j)){
+                count2++;
+            }
+         }
+         if(count1 != count2){
+             return false;
+         }else{
+             continue;
+         }
+     }
+     return true;
+    }
+}
+ 
