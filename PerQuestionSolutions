@@ -326,3 +326,45 @@ class Solution {
         return true;
     }
 }
+
+Approach
+Create two ArrayLists to collect the student’s and sandwich numbers.
+While the student’s ArrayList is not empty:
+If the first element of the student’s ArrayList matches the first sandwich number, remove both elements.
+Otherwise, move the first student’s element to the end of the ArrayList.
+If both ArrayLists are empty, return 0.
+To handle cases where the student’s ArrayList keeps cycling without matching the sandwich, use a count variable. Reset the count whenever a match occurs. If the count exceeds the size of the student’s ArrayList, return the ArrayList size.
+Complexity
+Time complexity: O(n^2)
+Due to ArrayList’s removal operation, which involves searching for the target object and shifting elements.
+Code
+class Solution {
+    public int countStudents(int[] students, int[] sandwiches) {
+        ArrayList<Integer> studentList = new ArrayList<Integer>();
+        ArrayList<Integer> sandwichList = new ArrayList<>();
+        for (int i =0;i<students.length;i++){
+            sandwichList.add(sandwiches[i]);
+            studentList.add(students[i]);
+        }
+        int count = 0;
+        int loopCount = 0;
+        while (true) {
+            if (Objects.equals(sandwichList.get(count), studentList.get(count))) {
+                sandwichList.remove(count);
+                studentList.remove(count);
+                loopCount = 0;
+            } else {
+                Integer remove = studentList.remove(count);
+                studentList.add(remove);
+                loopCount++;
+            }
+            if (sandwichList.isEmpty()) {
+                return 0;
+            }
+            if (loopCount>studentList.size()){
+                return studentList.size();
+            }
+        }
+    }
+}
+Feel free to ask question! 😊
