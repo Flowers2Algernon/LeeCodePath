@@ -1,5 +1,5 @@
 package medium;
-
+//todo rewrite the solution for this question
 public class Solution988 {
     public static void main(String[] args) {
         TreeNode treeNode = new TreeNode(0);
