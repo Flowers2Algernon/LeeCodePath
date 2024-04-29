@@ -52,7 +52,7 @@ public class Solution1289 {
     // value and location and difference to the row picked now's value and location and difference
     //to solve this, we need a list or a map to store the diff and location for the min and the second min
     //the detailed store's value is <location,min>,<location,second min>,diff
-    //
+    //todo need to solve near rows diff situation
     public int minFallingPathSum2(int[][] grid) {
         //use a list of hashmap to store each rows value, the first is location, the second is value,
         //and then traverse each hashmap, pick the smallest one, and also set a list of row,

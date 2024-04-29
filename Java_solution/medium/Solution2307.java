@@ -20,7 +20,7 @@ public class Solution2307 {
         int k = 7;
         System.out.println(solution2307.longestIdealString(s, k));
     }
-
+//todo rewrite this question
     private int longestIdealString(String s, int k) {
         int[] dp = new int[27];
         int n = s.length();

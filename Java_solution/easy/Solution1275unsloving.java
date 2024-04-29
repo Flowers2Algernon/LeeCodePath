@@ -27,6 +27,7 @@ You can assume that moves is valid (i.e., it follows the rules of Tic-Tac-Toe),
 * the grid is initially empty, and A will play first.
 * 初始A先下，moves赋值moves[0]=[ , ].
 * */
+//todo solve this problem
 public class Solution1275unsloving {
     @Test
     public void test() {
