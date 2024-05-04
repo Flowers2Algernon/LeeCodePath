@@ -1,5 +1,12 @@
 # LeeCodePath
-My own leecode solutions and mistakes
+
+What is this repository do?
+
+Through LeetCode problems to practice DSA.
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" alt="High Voltage" width="35" height="35" /> :  Stats
+
+
 
 ![![Leetcode Stats]](https://leetcard.jacoblin.cool/flowersToAlgernon?theme=light&font=Do%20Hyeon&ext=activity)
 
@@ -17,7 +24,7 @@ My own leecode solutions and mistakes
   - #### [Interview Bit Coding Interview Questions](https://www.interviewbit.com/coding-interview-questions/#)
   - #### [Programmers Coding Test Kit](https://school.programmers.co.kr/learn/challenges?tab=algorithm_practice_kit)
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Fire.png" alt="Fire" width="35" height="35" /> : Consistency is the key
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Fire.png" alt="Fire" width="35" height="35" /> : Consistency is the key
 
 - At least 1 Problem per Day
 
