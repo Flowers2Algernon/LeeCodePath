@@ -1,4 +1,5 @@
-# ✨What & How
+# ✨What
+[![LeetCode user flowersToAlgernon](https://img.shields.io/badge/dynamic/json?style=plastic&labelColor=black&color=%23ffa116&label=Solved&query=solved&url=https%3A%2F%2Fleetcode-badge.vercel.app%2Fapi%2Fusers%2FflowersToAlgernon&logo=leetcode&logoColor=yellow)](https://leetcode.com/flowersToAlgernon/)
 
 ###### What is this repository do?
 
@@ -8,9 +9,14 @@ Through LeetCode problems to practice DSA.
 
 Python, Java and JS
 
-##  📝: Links
+###### What about you?
 
-- My leetcode profile : [@flowersToAlgernon](https://leetcode.com/u/flowersToAlgernon/)
+My leetcode profile : [@flowersToAlgernon](https://leetcode.com/u/flowersToAlgernon/)
+
+
+
+# 📝How
+
 - My study plan is..
   - ###### [Official Website Study Plan](https://leetcode.com/studyplan/)
     - [LeetCode 75](https://leetcode.com/studyplan/leetcode-75/)
@@ -20,14 +26,17 @@ Python, Java and JS
   - ###### [Interview Bit Coding Interview Questions](https://www.interviewbit.com/coding-interview-questions/#)
   - ###### [Programmers Coding Test Kit](https://school.programmers.co.kr/learn/challenges?tab=algorithm_practice_kit)
 
-# 🎖️ : Consistency 
+# 🎖️Consistency 
 
 - ###### At least 1 Problem per Day
 
 
 
 <details> 
-<summary> My LeetCode Stats</summary>![![Leetcode Stats]](https://leetcard.jacoblin.cool/flowersToAlgernon?theme=light&font=Do%20Hyeon&ext=activity)
+<summary> My LeetCode Stats</summary>
+
+![Leetcode Stats](https://leetcard.jacoblin.cool/flowersToAlgernon?theme=light&font=Do%20Hyeon&ext=activity)
+
 </details>
 
 
