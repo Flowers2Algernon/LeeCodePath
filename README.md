@@ -7,7 +7,7 @@ Through LeetCode problems to practice DSA.
 
 ###### What language?
 
-Python, Java and JS
+Currently Java.
 
 ###### What about you?
 
