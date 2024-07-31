@@ -3,7 +3,7 @@
 
 ###### What is this repository do?
 
-Through LeetCode problems to practice DSA.
+Through LeetCode problems practice DSA.
 
 ###### What language?
 
