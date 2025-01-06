@@ -7,11 +7,16 @@ class Solution(object):
         start = 0
         end = 1
         result = 0
-        fru = set()
+        fru = {}
         for end in range(len(fruits)):
-            fru.add(fruits[end])
+            if fruits[end] not in fru:
+                fru[fruits[end]] = 1
+            else:
+                fru[fruits[end]] += 1
             while len(fru) > 2:
-                fru.remove(fruits[start])
+                fru[fruits[start]] -= 1
+                if fru[fruits[start]] == 0:
+                    del fru[fruits[start]]
                 start += 1
             if end - start + 1 > result:
                 result = end - start + 1
